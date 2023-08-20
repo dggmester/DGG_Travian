@@ -15,7 +15,7 @@
 ##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
-
+if (!isset($_SESSION)) session_start();
 include_once("GameEngine/Village.php");
 include("GameEngine/Data/cp.php");
 

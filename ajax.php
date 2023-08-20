@@ -8,7 +8,7 @@
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
-
+if (!isset($_SESSION)) session_start();
 // even with autoloader created, we can't use it here yet, as it's not been created
 // ... so, let's see where it is and include it
 $autoloader_found = false;

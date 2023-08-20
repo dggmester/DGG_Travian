@@ -1,4 +1,5 @@
 <?php
+session_start();
 use App\Utils\AccessLogger;
 
 #################################################################################
@@ -24,7 +25,10 @@ if(!file_exists('var/installed') && @opendir('install')) {
     exit;
 }
 include_once("GameEngine/config.php");
-//echo LANG;
+echo 'Megadott nyelv: '.$_POST['lang'];
+echo ' Böngészőbe mentett adat: '.$_COOKIE['LANG'];
+echo ' Session adat: '.$_SESSION['LANG'];
+echo ' Aktuális nyelv: '.LANG;
 
 /*
 if($_SERVER['HTTP_HOST'] != '.SERVER.')

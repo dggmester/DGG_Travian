@@ -12,6 +12,20 @@
 
 use App\Utils\AccessLogger;
 
+//ha nyelvváltás történt
+if(isset($_POST['lang'])) {
+	//define('LANG', $_POST['lang']);
+	session_start();
+	$_SESSION['LANG'] = $_POST['lang'];
+	/*
+	echo 'Megadott nyelv: '.$_POST['lang'];
+	echo 'Böngészőbe mentett adat: '.$_COOKIE['LANG'];
+	echo 'Aktuális nyelv: '.LANG;
+	die('Karbantartás....');
+	//Megadott nyelv: enBöngészőbe mentett adat: enAktuális nyelv: LANGKarbantartás....
+	*/
+}
+
 if(!file_exists('var/installed') && @opendir('install')) {
     header("Location: install/");
     exit;
@@ -191,6 +205,14 @@ Element.implement({
 		<tr class="btm">
 			<th><?php echo PASSWORD; ?></th>
 			<td><input class="text" type="password" name="pw" value="<?php echo $form->getValue("pw");?>" maxlength="100" autocomplete='off' /> <span class="error"><?php echo $form->getError("pw"); ?></span></td>
+		</tr>
+		<tr class="btm">
+			<th><?php echo CONF_SERV_LANG; ?></th>
+			<td>
+				<select name="lang" id="lang">
+					<option value="hu">Hungary</option>
+					<option value="en">English</option>
+				</select>
 		</tr>
 	</tbody>
 </table>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 use App\Entity\User;
 
 ob_start(); // Enesure, that no more header already been sent error not showing up again
